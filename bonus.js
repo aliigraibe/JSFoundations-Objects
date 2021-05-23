@@ -7,10 +7,11 @@ const channels = require("./channels.json");
  *
  * BONUS: use iteration method `.reduce()`
  ****************************************************************/
-function totalVideosDuration(channel) {
-  // Your code here
-}
-
+function totalVideosDuration(channel){
+  
+  return channel.videos.reduce((a,video )=>  {return a + video.duration }
+  
+  ,0);}
 /**************************************************************
  * channelWithMostContent(channels):
  * - receives an array of channel objects
@@ -20,7 +21,18 @@ function totalVideosDuration(channel) {
  * BONUS: use iteration method `.sort()`
  ****************************************************************/
 function channelWithMostContent(channels) {
-  // Your code here
+channels.sort((a,b)=>{
+
+
+  if(totalVideosDuration(a) < totalVideosDuration(b))return 1 ;
+  else return -1 ;
+});
+return channels[0];
+
+
+
+
+
 }
 
 /**************************************************************
@@ -31,9 +43,17 @@ function channelWithMostContent(channels) {
  * BONUS: use iteration method `.sort()`
  ****************************************************************/
 function longestChannelName(channels) {
-  // Your code here
-}
 
+
+  channels.sort((a,b)=>{
+
+
+    if (a.name.lenght< b.name.lenght)return 1 ;
+    else return -1 ; });
+    return channels[0];
+       
+  
+  }
 // Check your answers by running this file and comparing what it logs
 
 console.log(totalVideosDuration(channels[0]));
